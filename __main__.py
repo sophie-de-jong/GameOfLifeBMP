@@ -289,4 +289,5 @@ class App(tk.Tk):
 
 # Main code.
 # Run the application.
-App().mainloop()
+if __name__ == '__main__':
+    App().mainloop()
