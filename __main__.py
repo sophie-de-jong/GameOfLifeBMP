@@ -12,10 +12,10 @@ from selenium import webdriver
 from selenium.common import exceptions
 
 # Personal modules.
-import bitmap
+import game_of_life
 
 # Text was too big to put directly into the function where it is called.
-BITMAP_SIZE_WARNING = '{} is a large bitmap and can result in slow performance. Recommended bitmap size is 400x300 pixels or smaller.\n\nAre you sure you wish to continue?'
+BITMAP_SIZE_WARNING = '{} is a large bitmap and can result in slow performance. Recommended bitmap size is 400x400 pixels or smaller.\n\nAre you sure you wish to continue?'
 
 # Used as a decorator to run the function in a thread.
 # This is needed so that the GUI window can still be interacted with
@@ -233,7 +233,7 @@ class App(tk.Tk):
 
         # Get rulestring and create a Game of Life object.
         rulestring = self.get_rulestring()
-        game = bitmap.GameOfLife(self.filename, rulestring, is_reversed=self.is_reversed)
+        game = game_of_life.GameOfLife(self.filename, rulestring, is_reversed=self.is_reversed)
 
         # Warn user if the file is too large.
         volume = game.width * game.height * game.bit_depth
